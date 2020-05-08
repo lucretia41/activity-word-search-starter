@@ -39,3 +39,7 @@ fieldset {
   margin: var(--default-margin) 0px;
   border: var(--default-border);
 }
+.highlight {
+  background-color:rgb(255, 0, 0);
+  text-decoration:underline;
+ }

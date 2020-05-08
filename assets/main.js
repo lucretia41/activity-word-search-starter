@@ -4,17 +4,57 @@
 
 // On our HTML page, we have a #search-button, a #textbox input,
 // box a #sentence, and a #search-results DIV.
+//const textboxinput = document.querySelector('#textboxinput')//
+//const sentence = document.querySelector('sentence')//
+//const searchbutton = document.querySelector('search-button')//
+//const searchresults = document.querySelector('search-results')//
+
+
+
+
 
 // TODO 1: Use querySelector to assign EACH of the above 
 // elements to a variable, just like this:
 let searchButton = document.querySelector('#search-button')
+let textBox = document.querySelector('#textbox')
+let sentence = document.querySelector('#sentence')
+let searchResults = document.querySelector('#search-results')
 
 searchButton.addEventListener('click', function () {
- 
+  let userInput = textBox.value.toLowerCase().trim()
+  let wordSearch = sentence.innerText.split(' ')
+  let found = 0
+
+  if (sentence.innerText.toLowerCase().includes(userInput)) {
+
+    for (let x = 0; x < wordSearch.length; x++) {
+      if (wordSearch[x].includes(userInput)) {
+        found += 1
+      }
+      for (let x = 0; x < wordSearch.length; x++) {
+        if (wordSearch[x].toLowerCase() === textBox.value.toLowerCase()) {
+        wordSearch[x] = '<span class="highlight">' + wordSearch[x] + "</span>"; sentence.innerHTML = wordSearch.join(' ');
+
+        }
+      }
+
+      searchResults.innerText = found + "Found!"
+
+    }
+  }else {
+    searchResults.innerText = "Too Bad So Sad"
+  }
+
+  
+})
+
+
+
+
   // TODO 2: Write an IF statement which determines whether
   // the user-supplied string from #textbox is included in
   // the #sentence string.
-  
+
   // Hint 1: To get the user-supplied string from the input 
   // box (#textbox), use the property .value on the variable
   // you assigned the textbox element to.
@@ -33,7 +73,7 @@ searchButton.addEventListener('click', function () {
   // otherwise update it with a failure message (such as, 
   // "No results. Too bad!")
 
-})
+
 
 // STRETCH GOALS (easiest to hardest):
 //
