@@ -33,7 +33,7 @@ searchButton.addEventListener('click', function () {
       }
       for (let x = 0; x < wordSearch.length; x++) {
         if (wordSearch[x].toLowerCase() === textBox.value.toLowerCase()) {
-        wordSearch[x] = '<span class="highlight">' + wordSearch[x] + "</span>"; sentence.innerHTML = wordSearch.join(' ');
+          wordSearch[x] = '<span class="highlight">' + wordSearch[x] + "</span>"; sentence.innerHTML = wordSearch.join(' ');
 
         }
       }
@@ -41,11 +41,11 @@ searchButton.addEventListener('click', function () {
       searchResults.innerText = found + "Found!"
 
     }
-  }else {
+  } else {
     searchResults.innerText = "Too Bad So Sad"
   }
 
-  
+
 })
 
 
